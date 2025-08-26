@@ -1,0 +1,26 @@
+@echo off
+echo ============================================
+echo Compilando proyecto "verificador" ...
+echo ============================================
+
+:: Ajusta nombres de archivos según tu proyecto
+g++ -std=c++17 -Iinclude ^
+  src\lexico\abecedario.cpp ^
+  src\lexico\lectorArchivo.cpp ^
+  src\lexico\representacion.cpp ^
+  src\lexico\validador.cpp ^
+  app\main.cpp ^
+  -o verificador.exe
+
+if %ERRORLEVEL% NEQ 0 (
+    echo --------------------------------------------
+    echo ❌ Error de compilacion
+    pause
+    exit /b %ERRORLEVEL%
+)
+
+echo --------------------------------------------
+echo ✅ Compilacion exitosa. Ejecutando programa...
+echo --------------------------------------------
+verificador.exe
+pause
